@@ -1,5 +1,3 @@
-# Requires: pip install playwright beautifulsoup4 requests pillow
-# And run once: python -m playwright install
 
 # Title | Genre | Players | Time | Desc | Complexity | Rating | Image
 
@@ -69,6 +67,7 @@ def fetch_game_info(url, img_index=None):
     data["image_file"] = None
     if img_index is not None:
         img_tag = soup.select_one("img[itemprop='image']")
+        img_index = str(img_index).zfill(3)
         if img_tag:
             img_url = img_tag.get("src")
             if img_url:
