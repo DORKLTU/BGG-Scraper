@@ -81,7 +81,10 @@ def fetch_game_info(url, img_index=None):
                 except Exception as e:
                     print("Failed to download image:", e)
 
-    print(f"✅ {data['title']}")
+    if data['title']:
+        print(f"✅ {data['title']} || {url}")
+    else:
+        print(f"❌ ERROR || {url}")
     return data
 
 input_file = "input.txt"
@@ -91,7 +94,7 @@ with open(input_file, "r", encoding="utf-8") as f_in, open(output_file, "w", enc
     img_counter = 0
     for line in f_in:
         line = line.strip()
-        if not line or line.startswith("#"):
+        if not line.startswith("https://"):
             continue  
         url = line
         info = fetch_game_info(url, img_index=img_counter)
