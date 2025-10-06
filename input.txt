@@ -1,0 +1,7 @@
+# Klistra in alla länkar så dyker alla info upp i output.txt
+# <-- Kommentar, dessa ignoreras Så du kan lämna dessa.
+
+https://boardgamegeek.com/boardgame/28720/brass-lancashire
+https://boardgamegeek.com/boardgame/272380/shobu
+https://boardgamegeek.com/boardgame/237182/root
+https://boardgamegeek.com/boardgame/426129/dune-imperium-bloodlines
