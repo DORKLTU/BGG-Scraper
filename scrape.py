@@ -26,7 +26,7 @@ def fetch_game_info(url, img_index=None):
     data["title"] = title_tag.get_text(strip=True) if title_tag else None
 
     genre = soup.select("span.rank-title.ng-binding")
-    data["genre"] = genre[1].get_text(strip=True) if len(genre) > 1 else None
+    data["genre"] = genre[1].get_text(strip=True) if len(genre) > 1 else "Expansion"
 
     data["players"] = None
     p_tag = soup.select_one("p.gameplay-item-primary.mb-0")
@@ -99,7 +99,8 @@ with open(input_file, "r", encoding="utf-8") as f_in, open(output_file, "w", enc
         url = line
         info = fetch_game_info(url, img_index=img_counter)
         img_counter += 1
-
+        if info.get('title') == None:
+            continue
         formatted = (
             f"{info.get('title', '')} | "
             f"{info.get('genre', '')} | "
