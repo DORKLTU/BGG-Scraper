@@ -99,8 +99,6 @@ with open(input_file, "r", encoding="utf-8") as f_in, open(output_file, "w", enc
         url = line
         info = fetch_game_info(url, img_index=img_counter)
         img_counter += 1
-        if info.get('title') == None:
-            continue
         formatted = (
             f"{info.get('title', '')} | "
             f"{info.get('genre', '')} | "
@@ -110,5 +108,5 @@ with open(input_file, "r", encoding="utf-8") as f_in, open(output_file, "w", enc
             f"weight: {info.get('weight', '')} | "
             f"Rating: {info.get('average_rating', '')}"
         )
-
-        f_out.write(formatted + "\n")
+        if info.get('title', '') != None:
+            f_out.write(formatted + "\n\n")
