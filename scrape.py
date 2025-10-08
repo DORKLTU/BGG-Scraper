@@ -105,7 +105,7 @@ with open(input_file, "r", encoding="utf-8") as f_in, open(output_file, "w", enc
             f"{info.get('players', '')} Players | "
             f"{info.get('play_time', '')} | "
             f"\"{info.get('desc', '')}\" | "
-            f"weight: {info.get('weight', '')} | "
+            f"Complexity: {info.get('weight', '')} / 5 | "
             f"Rating: {info.get('average_rating', '')}"
         )
         if info.get('title', '') != None:
